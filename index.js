@@ -4,6 +4,10 @@ const PORT = 8080
 
 app.use( express.json() )
 
+app.listen(
+    PORT,
+    () => console.log(`http:/localhost:${PORT}`)
+)
 
 app.get('/tshirt',(req,res)=>{
     res.status(200).send({
