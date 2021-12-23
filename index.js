@@ -1,27 +1,13 @@
-const express = require('express');
-const app = express();
-const PORT = 8080
+var http = require('http');
 
-app.use( express.json() )
+var http = require('http');
+var dt = require('./mymod.js');
 
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/html'});
+  res.write("The date and time are currently: " + dt.myDateTime());
+  res.end();
+}).listen(8080);
 
-app.get('/tshirt',(req,res)=>{
-    res.status(200).send({
-        tshirt: "blank",
-        size: "big"
-    }
-    )
-});
-
-app.post('/tshirt/:id',(req,res)=>{
-    const {id} = req.params
-    const {logo} = req.body
-
-    if (!logo) {
-        res.status(418).send( {message: 'we need a logo'})
-    }
-
-    res.send({
-        tshirt: `tshirt with ${logo} and ID of ${id}`,
-    });
-});
+console.log('This example is different!');
+console.log('The result is displayed in the Command Line Interface');
