@@ -6,7 +6,7 @@ app.use( express.json() )
 
 app.listen(
     PORT,
-    () => console.log(`http:/localhost:${PORT}`)
+    () => console.log(`http://localhost:${PORT}`)
 )
 
 app.get('/tshirt',(req,res)=>{
